@@ -1,0 +1,15 @@
+server:
+  error:
+    include-exception: true
+    include-stacktrace: never
+    include-message: always
+    include-binding-errors: never
+    whitelabel:
+      enabled: true
+  servlet:
+    encoding:
+      charset: UTF-8
+
+spring:
+  profiles:
+    active: local

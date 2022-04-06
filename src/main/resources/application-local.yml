@@ -1,0 +1,20 @@
+server:
+  port: 28093
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://evan-dev-db.clmjrfqtuvim.ap-northeast-2.rds.amazonaws.com:3306/spring_batch?rewriteBatchedStatements=true&profileSQL=true&logger=Slf4JLogger&maxQuerySizeToLog=1000
+    username: admin
+    password: 87654321
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: false
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 10000

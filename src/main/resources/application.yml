@@ -13,3 +13,8 @@ server:
 spring:
   profiles:
     active: local
+  batch:
+    jdbc:
+      initialize-schema: always
+    job:
+      names: ${job.name:NONE}

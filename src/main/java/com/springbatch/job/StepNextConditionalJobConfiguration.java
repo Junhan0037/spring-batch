@@ -11,6 +11,10 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Flow: 조건별 흐름제어
+ */
+
 @Configuration
 @Slf4j
 @RequiredArgsConstructor

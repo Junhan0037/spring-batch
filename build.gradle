@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.5.12'
+    id 'org.springframework.boot' version '2.5.2'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -29,6 +29,7 @@ dependencies {
     runtimeOnly 'com.h2database:h2'
 
     // Utils
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 

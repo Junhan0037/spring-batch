@@ -1,4 +1,4 @@
-package com.springbatch.job;
+package com.springbatch.job.itemreader;
 
 import com.springbatch.model.Pay;
 import lombok.RequiredArgsConstructor;

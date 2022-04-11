@@ -3,12 +3,15 @@ package com.springbatch.job;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Map;
 
 @Configuration
 @Slf4j
@@ -30,6 +33,16 @@ public class HelloJobConfiguration {
     public Step helloStep1() {
         return stepBuilderFactory.get("helloStep1")
                 .tasklet((contribution, chunkContext) -> {
+                    // JobParameters 참조 방식 1
+                    JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
+                    jobParameters.getString("name");
+                    jobParameters.getLong("seq");
+                    jobParameters.getDate("date");
+                    jobParameters.getDouble("age");
+
+                    // JobParameters 참조 방식 2
+                    Map<String, Object> jobParameters2 = chunkContext.getStepContext().getJobParameters();
+
                     log.info("Hello Spring Batch 1");
                     return RepeatStatus.FINISHED;
                 })

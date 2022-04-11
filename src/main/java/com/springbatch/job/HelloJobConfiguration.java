@@ -36,9 +36,6 @@ public class HelloJobConfiguration {
                     // JobParameters 참조 방식 1
                     JobParameters jobParameters = contribution.getStepExecution().getJobExecution().getJobParameters();
                     jobParameters.getString("name");
-                    jobParameters.getLong("seq");
-                    jobParameters.getDate("date");
-                    jobParameters.getDouble("age");
 
                     // JobParameters 참조 방식 2
                     Map<String, Object> jobParameters2 = chunkContext.getStepContext().getJobParameters();
@@ -54,6 +51,7 @@ public class HelloJobConfiguration {
         return stepBuilderFactory.get("helloStep2")
                 .tasklet((contribution, chunkContext) -> {
                     log.info("Hello Spring Batch 2");
+//                    throw new RuntimeException("step2 FAILED!!!");
                     return RepeatStatus.FINISHED;
                 })
                 .build();
